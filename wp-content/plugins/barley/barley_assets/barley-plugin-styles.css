@@ -1,0 +1,297 @@
+/*! barley-editor-plugins - http://plainmade.com */
+
+/* Fix for some plugins that position the body */
+html, html body { position: inherit; }
+
+/* Tag/Category Button Icon */
+.barley_editor_meta_wraper {
+    opacity:0;
+    position: relative;
+    z-index: 100;
+    xright: -20px;
+    margin:0;
+    clear: both;
+    width: 100%;
+    text-align: right;
+    height: 0;
+    top: -20px;
+}
+.barley_editor_meta_wraper .barley_meta_btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: #fcfcfc;
+    background: -moz-linear-gradient(top, #fcfcfc 38%, #f2f2f2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(38%, #fcfcfc), color-stop(100%, #f2f2f2));
+    background: -webkit-linear-gradient(top, #fcfcfc 38%, #f2f2f2 100%);
+    background: -o-linear-gradient(top, #fcfcfc 38%, #f2f2f2 100%);
+    background: -ms-linear-gradient(top, #fcfcfc 38%, #f2f2f2 100%);
+    background: linear-gradient(to bottom, #fcfcfc 38%, #f2f2f2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f2f2f2',GradientType=0 );
+    border-radius: 50%;
+    text-align: center;
+    font-size: 17px;
+    box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2), 0 1px 2px 0 rgba(0,0,0,0.18),0 -10px 20px -14px rgba(0,0,0,0.2) inset;
+    box-sizing: content-box;
+    font-weight: bold;
+    display: inline-block;
+    color: #000;
+    font-size: 15px;
+    line-height: 24px;
+    opacity: 1;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+    text-decoration: none; 
+    border:none;
+}
+.barley_editor_meta_wraper .barley_meta_btn i {
+    line-height: 22px;
+    font-size: 13px;
+}
+
+.barley_editor_meta_wraper #barley_show_meta_cxt_page i { font-size: 15px; }
+
+#barley-drafts-modal.barley-modal .barley-modal-content {
+    width:750px;
+}
+
+#barley-drafts-modal.barley-modal .barley-modal-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li {
+    height: auto;
+    height: 32px;
+    display: block;
+    margin: 0 0 10px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li {
+    height: auto;
+    display: block;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    -moz-transition: background-color .7s ease-in-out;
+    -webkit-transition: background-color .7s ease-in-out;
+    -o-transition: background-color .7s ease-in-out;
+    transition: background-color .7s ease-in-out;
+     *zoom: 1;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li:before,
+#barley-drafts-modal.barley-modal .barley-modal-content ul li:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li:after {
+    clear: both;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li:nth-child(even) {
+    background-color: rgba(255,255,255,0.4);
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li:hover {
+    background-color: rgba(0,0,0,0.04);
+    -moz-transition: background-color .7s ease-in-out;
+    -webkit-transition: background-color .7s ease-in-out;
+    -o-transition: background-color .7s ease-in-out;
+    transition: background-color .7s ease-in-out;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li a, #barley-drafts-modal.barley-modal .barley-modal-content ul li a:hover {
+    color: rgba(0,0,0,0.9);
+    display: block;
+    font-family: 'MuliRegular', sans-serif;
+    text-decoration: none;
+    font-size: 13px;
+    height: 38px;
+    border:none;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li span.nolink {
+    padding: 20px 15px 0;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li a span.draft-title {
+    width: 500px;
+    max-width: 500px;
+    display: block;
+    float: left;
+    padding: 13px 0 12px 14px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content ul li a span.draft-create-date {
+    float: right;
+    width: 137px;
+    font-style: italic;
+    color: rgba(0,0,0,0.5);
+    font-size: 12px;
+    padding: 14px 16px 12px 0;
+}
+#barley-drafts-modal i.barley-icon-spinner.barley-bar-animate-spin {
+    font-size: 50px;
+    padding: 0px 0px 0px 0px;
+    width: 75px;
+    height: 70px;
+    overflow: hidden;
+    text-align: center;
+    margin: 25px 0 0 293px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content .barley-modal-sub-heading {
+    width: 750px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    line-height: 22px;
+    padding: 10px 0 0 45px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content .barley-modal-content-area {
+    padding-top: 48px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content .barley-modal-sub-heading:after {
+    margin-top: 10px;
+    width: 750px;
+    margin-left: -46px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-content .barley_modal_sh_date {
+    float: right;
+    margin-right: 138px;
+}
+#barley-drafts-modal.barley-modal .barley-modal-heading a.barley-bar-close-modal {
+    border:none;
+}
+
+
+/* Featured Image Styles */
+#barley_editor_controls .barley_editor_meta_single i.barley-icon-picture {
+    position: absolute;
+    top: 3px;
+    font-size: 14px;
+    left: 5px;
+    z-index: 10;
+}
+#barley_editor_controls .barley_editor_meta_single .barley-editor-featured-image img {
+    cursor: pointer;
+    margin-bottom: -3px;
+    max-width: 201px;
+    overflow: hidden;
+}
+#barley_editor_controls .barley_editor_meta_single .barley_featured_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(90,87,87, .7);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display:none; 
+    cursor: pointer; 
+}
+#barley_editor_controls .barley_editor_meta_single i.barley-icon-exchange {
+    color: #FFF;
+    font-size: 40px;
+    top: 50%;
+    position: relative;
+    cursor: pointer;
+    margin-top: -27px;
+    display: block;
+    text-align: center; 
+}
+#barley_editor_controls .barley_editor_meta_single .barley-editor-featured-image {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+.media-frame-title h1 {
+    color:#000;
+}
+
+/* DIV Style Reset */
+html div[data-barley-wordpressid], html div.barley_hide_outline {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 100% !important;
+    font: inherit !important;
+    vertical-align:baseline !important;
+    background:transparent !important;
+}
+
+#barley_editor_controls input#barley-search-links {
+    margin: 0;
+    padding: 0 15px 0 0;
+    width: 182px !important;
+}
+#barley_editor_controls #barley-link-search {
+    padding: 5px;
+    clear: both;
+    display: block;
+}
+#barley_editor_controls #barley-lsearch-res {
+    position: relative;
+    left: 0;
+    border-top: none;
+    width: 182px;
+}
+#barley_editor_controls #barley-link-search-reset {
+    position: absolute;
+    right: 4px;
+    top: 3px;
+    font-size: 13px;
+    display: none;
+}
+#barley_editor_controls #barley-search-spin {
+    position: absolute;
+    left: 124px;
+    top: 175px;
+    width: 9px;
+    height: 16px; 
+    display: none;   
+}
+
+#barley_page_attributes_wrap { display: none; }
+
+#barley_editor_controls .barley_page_attributes {
+    width: 201px;
+    display: block;
+    padding-bottom: 8px;
+}
+#barley_editor_controls .barley_page_attributes label {
+    font-size: 12px;
+    padding: 8px 10px 8px 0;
+    width: 65px;
+    display: inline-block;    
+}
+#barley_editor_controls .barley_page_attributes select {
+    display: inline-block;
+    width: 125px;
+    background-color: #FFF;    
+    padding: 0 7px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #dedede;
+    color: #222;
+    border-radius: 0;
+    -moz-box-sizing: border-box;
+    height: 24px;
+    line-height: 21px;
+    cursor: pointer;
+}
+#barley_editor_controls .barley_page_attributes span.sort-icon {
+    margin-left:-18px;
+}
+#barley_editor_controls .barley_page_attributes span.sort-icon-last {
+    margin-left:-15px;
+}
+#barley_editor_controls .barley_page_attributes input {
+    background: #FFF;
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    border: 1px solid #D6D6D6;
+    border-radius: 2px;    
+    text-align: center;
+    line-height: 21px;
+}

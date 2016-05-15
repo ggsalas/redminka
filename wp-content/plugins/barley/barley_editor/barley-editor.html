@@ -1,0 +1,319 @@
+<!-- Barley Editor Tools : This will not be visible when signed out -->
+<div id="barley_editor_controls">
+    <div id="barley-image-loader"></div>
+    <div id="barley_editor_insert_after"><a id="barley_show_add_cxt" href="#"><i class="barley-icon-plus"></i></a></div>
+    <div id="barley_editor_insert"><a id="barley_show_add_cxt_inline" href="#"><i class="barley-icon-plus"></i></a></div>
+    <div class="barley_editor_toolbar" id="barley_editor_advanced">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_hassub"><i class="barley-icon-star"></i></button>
+                <div class="barley_editor_sub">
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="P"><i class="barley-icon-paragraph"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="H2"><i class="barley-icon-h2"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="H3"><i class="barley-icon-h3"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="H4"><i class="barley-icon-h4"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="BLOCKQUOTE"><i class="barley-icon-quote-left"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="PRE"><i class="barley-icon-code"></i></button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_hassub"><i class="barley-icon-pencil"></i></button>
+                <div class="barley_editor_sub barley_editor_sub_small">
+                    <button class="barley_editor_button_inline barley_editor_action" rel="bold"><i class="barley-icon-bold"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="italic"><i class="barley-icon-italic"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="justifyLeft"><i class="barley-icon-align-left"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="justifyCenter"><i class="barley-icon-align-center"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="justifyRight"><i class="barley-icon-align-right"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="insertUnorderedList"><i class="barley-icon-list-ul"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="insertOrderedList"><i class="barley-icon-list-ol"></i></button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box" name="barley_link"><i class="barley-icon-link"></i></button>
+                <div class="barley_editor_box">
+                    <input type="text" value="http://" name="barley_editor_link" class="barley_editor_link" />
+                    <div class="barley-link-submit-wrap">
+                        <input type="checkbox" name="barley_editor_newWin" id="barleyNW" class="barley_editor_newWin" value="" />
+                        <label for="barleyNW">New Window</label>
+                    </div>
+                    <button class="barley_editor_add barley_editor_action" rel="insertLink">Update</button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action barley_editor_last" rel="undo"><i class="barley-icon-undo"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_plus">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_hassub"><i class="barley-icon-star"></i></button>
+                <div class="barley_editor_sub">
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="P"><i class="barley-icon-paragraph"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="H2"><i class="barley-icon-h2"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="H3"><i class="barley-icon-h3"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="H4"><i class="barley-icon-h4"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="BLOCKQUOTE"><i class="barley-icon-quote-left"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="formatBlock" data-value="PRE"><i class="barley-icon-code"></i></button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_hassub"><i class="barley-icon-pencil"></i></button>
+                <div class="barley_editor_sub barley_editor_sub_small">
+                    <button class="barley_editor_button_inline barley_editor_action" rel="bold"><i class="barley-icon-bold"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="italic"><i class="barley-icon-italic"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="justifyLeft"><i class="barley-icon-align-left"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="justifyCenter"><i class="barley-icon-align-center"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="justifyRight"><i class="barley-icon-align-right"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="insertUnorderedList"><i class="barley-icon-list-ul"></i></button>
+                    <button class="barley_editor_button_inline barley_editor_action" rel="insertOrderedList"><i class="barley-icon-list-ol"></i></button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box" name="barley_link"><i class="barley-icon-link"></i></button>
+                <div class="barley_editor_box">
+                    <input type="text" value="http://" name="barley_editor_link" class="barley_editor_link" />
+                    <div class="barley-link-submit-wrap">
+                        <input type="checkbox" name="barley_editor_newWin" id="barleyNW" class="barley_editor_newWin" value="" />
+                        <label for="barleyNW">New Window</label>
+                    </div>
+                    <button class="barley_editor_add barley_editor_action" rel="insertLink">Update</button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action barley_editor_last" rel="undo"><i class="barley-icon-undo"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_simple">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action" rel="bold"><i class="barley-icon-bold"></i></button>
+                <button class="barley_editor_button barley_editor_action  barley_editor_last" rel="italic"><i class="barley-icon-italic"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_link">
+        <div class="barley_editor_main">
+            <div class="barley_editor_box">
+                <input type="text" value="http://" name="barley_editor_link" class="barley_editor_link" />
+                <div class="barley-link-submit-wrap">
+                    <input type="checkbox" name="barley_editor_newWin" id="barleyNW" class="barley_editor_newWin" value="" />
+                    <label for="barleyNW">New Window</label>
+                </div>
+                <button class="barley_editor_add barley_editor_action" rel="insertLink">Update</button>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_linkedit">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action" rel="editURL"><i class="barley-icon-edit"></i></button>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action  barley_editor_last" rel="openURL"><i class="barley-icon-external-link"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_meta">
+        <div class="barley_editor_main">
+            <div class="barley_editor_meta_box">
+                <div class="barley_editor_meta_single" id="barley_editor_catList">
+                    <i class="barley-icon-folder-close"></i><a href="#" class="barley_editor_meta_action"><i class="barley-icon-ok"></i></a>
+                    <input class="barley_editor_meta_inpt" type="text" placeholder="Categories..." />
+                    <ul class="barley_editor_meta_content"></ul>
+                </div>
+                <div class="barley_editor_meta_single" id="barley_editor_tagList">
+                    <i class="barley-icon-tag"></i><a href="#" class="barley_editor_meta_action"><i class="barley-icon-ok"></i></a>
+                    <input class="barley_editor_meta_inpt" type="text" placeholder="Agregar Etiquetas.." />
+                    <ul class="barley_editor_meta_content"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_extra">
+        <div class="barley_editor_main">
+            <div class="barley_editor_meta_box"></div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_image">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box"><i class="barley-icon-edit"></i></button>
+                <div class="barley_editor_box barley_editor_resize">
+                    <label>Width</label>
+                    <input type="text" value="" name="barley_editor_image_width" class="barley_editor_image_width" />
+                    <label>Title</label>
+                    <input type="text" value="" name="barley_editor_image_alt" class="barley_editor_image_alt" />
+                    <label>Class</label>
+                    <input type="text" value="" name="barley_editor_image_class" class="barley_editor_image_class" />
+                    <button class="barley_editor_add barley_editor_action" rel="imageResize">Update</button>
+                </div>
+            </div>
+            <button class="barley_editor_button barley_editor_action" rel="imageReplace"><i class="barley-icon-exchange"></i></button>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box" name="barley_image_link"><i class="barley-icon-link"></i></button>
+                <div class="barley_editor_box barley_editor_resize">
+                    <label>Link</label>
+                    <input type="text" value="http://" name="barley_editor_image_link" class="barley_editor_image_link" />
+                    <button class="barley_editor_add barley_editor_action" rel="imageLink">Update</button>
+                </div>
+            </div>
+            <button class="barley_editor_button barley_editor_action" rel="imageRemove"><i class="barley-icon-ban-circle"></i></button>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_image_swap">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box"><i class="barley-icon-edit"></i></button>
+                    <div class="barley_editor_box barley_editor_resize">
+                        <label>Title</label>
+                        <input type="text" value="" name="barley_editor_image_alt" class="barley_editor_image_alt" />
+                        <button class="barley_editor_add barley_editor_action" rel="imageResize">Update</button>
+                    </div>
+            </div>
+            <button class="barley_editor_button barley_editor_action" rel="imageReplace"><i class="barley-icon-exchange"></i></button>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box" name="barley_image_link"><i class="barley-icon-link"></i></button>
+                <div class="barley_editor_box barley_editor_resize">
+                    <label>Link</label>
+                    <input type="text" value="http://" name="barley_editor_image_link" class="barley_editor_image_link" />
+                    <button class="barley_editor_add barley_editor_action" rel="imageLink">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_image_special">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box"><i class="barley-icon-edit"></i></button>
+                <div class="barley_editor_box barley_editor_resize">
+                    <label>Title</label>
+                    <input type="text" value="" name="barley_editor_image_alt" class="barley_editor_image_alt" />
+                    <button class="barley_editor_add barley_editor_action" rel="imageResize">Update</button>
+                </div>
+            </div>
+            <button class="barley_editor_button barley_editor_action" rel="imageReplaceSpecial"><i class="barley-icon-exchange"></i></button>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box" name="barley_image_link"><i class="barley-icon-link"></i></button>
+                <div class="barley_editor_box barley_editor_resize">
+                    <label>Link</label>
+                    <input type="text" value="http://" name="barley_editor_image_link" class="barley_editor_image_link" />
+                    <button class="barley_editor_add barley_editor_action" rel="imageLink">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="barley_editor_toolbar" id="barley_editor_insertion">
+        <div class="barley_editor_main">
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action" rel="insertAT" data-action="imageUpload"><i class="barley-icon-picture"></i></button>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action" rel="insertAT" data-action="videoModal"><i class="barley-icon-facetime-video"></i></button>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_show_box"><i class="barley-icon-code-block"></i></button>
+                <div class="barley_editor_box">
+                    <textarea name="barley_editor_dump" placeholder="Enter HTML code here..." class="barley_editor_dump"></textarea>
+                    <button class="barley_editor_add barley_editor_action" rel="insertAT" data-action="insertFromTA">Add</button>
+                </div>
+            </div>
+            <div class="barley_editor_btn_group">
+                <button class="barley_editor_button barley_editor_action barley_editor_last" rel="insertAT" data-action="insertHTML" data-value="HR" data-format="true"><i class="barley-icon-minus"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id='barley_filter_cont' contenteditable='true'>&nbsp;</div>
+<div id="barley-video-modal" class="barley-modal">
+    <input type="hidden" value="YOUTUBEID" id="barley-youtube-channel-id" />
+    <div class="barley-modal-heading">
+        <h3>Insertar un Video</h3>
+        <a class="barley-bar-close-modal" href="#"><i class="barley-icon-remove"></i></a>
+    </div>
+    <div class="barley-modal-nav">
+        <div class="barley-modal-nav-heading">
+            <h4>Origen:</h4>
+        </div>
+        <ul>
+            <li class="active"><a href="#barley-video-tab-1"><i class="barley-icon-social-youtube"></i>YouTube</a></li>
+            <li><a href="#barley-video-tab-2"><i class="barley-icon-link"></i>Dirección (URL) Web</a></li>
+            <li><a href="#barley-video-tab-3"><i class="barley-icon-code"></i>Código Embed</a></li>
+        </ul>
+    </div>
+    <div class="barley-modal-content">
+        <div class="barley-modal-content-wrap" id="barley-video-tab-1">
+            <div class="barley-modal-sub-heading">
+                <div class="barley-modal-user-account"></div>
+                <ul class="barley-modal-content-nav">
+                    <li class="active"><a href="#barley-videos-yours">Tus Videos</a><span class="active-arrow"></span></li>
+                    <li><a href="#barley-videos-all">Todos los Videos</a><span class="active-arrow"></span></li>
+                </ul>
+            </div>
+            <div class="barley-sub-heading-spacer"></div>
+            <div class="barley-modal-content-area" id="barley-videos-yours">
+                <div class="alert-message error"></div>
+                    <div class="fieldset action">
+                        <form id="barley-yt-user-action-form">
+                            <label for="barley-yt-user">Nombre del Canal de YouTube</label>
+                            <input type="text" name="barley-yt-user" class="barley-modal-text-input" value="" id="barley-yt-user">
+                            <button type="submit" class="barley-icon-ok" value="" id="barley-yt-user-action"></button>
+                        </form>
+                    </div>
+                    <div class="barley-yt-all-videos">
+                        <div class="barley-yt-video-results-list-empty">
+                            <p>Por favor, agregá arriba el nombre de tu canal de youtube. El nombre de tu canal de Youtube es parte de la url de tu youtube. Ej: http://youtube.com/user/PlainLLC : El nombre del canal es: "PlainLLC".</p>
+                            <p>Por favor, observá que en este visor de videos solamente se muestran los videos públicos. Si tenés videos privados  videos no listados no se mostrarán aquí, por esta razón vas a tener que ir a buscar el código embed en la páginaa de youtube. </p>
+                            <p>Sólo se requiere el nombre de tu canal una vez, y lo podes eliminar cuando desees.</p>
+                        </div>
+                    </div>
+                <!-- End Full Test Here -->
+            </div>
+            <div class="barley-modal-content-area" id="barley-videos-all">
+                <div class="fieldset action">
+                    <form id="barley-yt-video-search-action-form">
+                        <label for="barley-yt-video-search" class="title-label">BUSCAR TODOS LOS VIDEOS:</label>
+                        <input type="text" name="barley-yt-video-search" class="barley-modal-text-input" value="" id="barley-yt-video-search">
+                        <button type="submit" class="barley-icon-search" value="" id="barley-yt-video-search-action"></button>
+                    </form>
+                </div>
+                <div class="barley-yt-all-videos">
+                    <h4 class="barley-yt-results-title"></h4>
+                    <div class="barley-content-grid" id="barley-yt-video-results-list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="barley-modal-content-wrap" id="barley-video-tab-2">
+            <div class="barley-modal-content-area">
+                <div class="alert-message error"></div>
+                <p class="barley-modal-intro">Simplemente pegá la dirección (URL) de Youtube o Vimeo para poder insertar el video. Si requerís opciones adicionales podes probar colocando el Código Embed.</p>
+                <label for="barley-video-link-url" class="title-label">Pegar la dirección (URL) abajo:</label>
+                <input type="text" name="barley-video-link-url" class="barley-modal-text-input" value="" id="barley-video-link-url">
+
+                <h4 class="barley-modal-advanced-heading">Opciones Avanzadas<span><i class="barley-icon-chevron-down"></i></span></h4>
+                <div class="barley-modal-advanced">
+                    <label for="barley-video-url-classes">Clase/s para el Contenedor:</label>
+                    <input type="text" name="barley-video-url-classes" class="barley-modal-text-input" value="" id="barley-video-url-classes">
+                </div>
+                <button class="barley-standard-action-button" id="barley-insert-videourl" rel="insertFromVideoModalURL">Insertar Video</button>
+            </div>
+        </div>
+        <div class="barley-modal-content-wrap" id="barley-video-tab-3">
+            <div class="barley-modal-content-area">
+                <div class="alert-message error"></div>
+                <p class="barley-modal-intro">Podes insertar videos por muchos servicios populares como Vimeo, Viddler y TED. Copiá el Código Embed del video elegido y pegalo en el cuadro inferior.</p>
+                <label for="barley-video-embed-code" class="title-label">Pegá el código abajo:</label>
+                <textarea name="barley-video-embed-code" id="barley-video-embed-code"></textarea>
+
+                <h4 class="barley-modal-advanced-heading">Opciones Avanzadas<span><i class="barley-icon-chevron-down"></i></span></h4>
+                <div class="barley-modal-advanced">
+                    <label for="barley-video-embed-classes">Container Class(es):</label>
+                    <input type="text" name="barley-video-embed-classes" class="barley-modal-text-input" value="" id="barley-video-embed-classes">
+                </div>
+                <button class="barley-standard-action-button" id="barley-insert-videocode" rel="insertFromVideoModal">Insertar Video</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Barley Editor Tools -->

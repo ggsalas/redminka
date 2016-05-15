@@ -1,0 +1,7 @@
+#head-wrap {
+    position: fixed;
+    top: 0px !important;
+    width: 100%;
+    z-index: 90;
+    border-bottom: 2px solid #666 \9;
+}

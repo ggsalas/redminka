@@ -1,0 +1,14 @@
+#tinymce.mce-fullscreen, #tinymce.mceContentBody {
+
+}
+body#tinymce{
+	background: #E9E9D2 !important;
+	box-shadow: 0 0px 0px !important;
+	font-family: "Ubuntu",sans-serif;
+	font-size: 1rem;
+	color: #333;
+}
+body#tinymce:focus{
+	background-color: #fff !important;
+	}
+	

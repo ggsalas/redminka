@@ -1,0 +1,391 @@
+<?php
+// Start the engine
+require_once( get_template_directory() . '/lib/init.php' );
+
+// Child theme (do not remove)
+define( 'CHILD_THEME_NAME', 'redminkaepik' );
+define( 'CHILD_THEME_URL', 'http://ggsalas.com.ar' );
+
+// Add Viewport meta tag for mobile browsers
+add_action( 'genesis_meta', 'epik_viewport_meta_tag' );
+function epik_viewport_meta_tag() {
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
+}
+
+// Create additional color style options
+add_theme_support( 'genesis-style-selector', array( 
+	'epik-black'	=>	__( 'Black', 'epik' ), 
+	'epik-blue' 	=>	__( 'Blue', 'epik' ),
+	'epik-darkblue' =>	__( 'Dark Blue', 'epik' ),  
+	'epik-gray' 	=> 	__( 'Gray', 'epik' ), 
+	'epik-green' 	=> 	__( 'Green', 'epik' ),
+	'epik-orange' 	=> 	__( 'Orange', 'epik' ), 
+	'epik-pink' 	=> 	__( 'Pink', 'epik' ),
+	'epik-purple' 	=> 	__( 'Purple', 'epik' ), 
+	'epik-red' 		=> 	__( 'Red', 'epik' ), 
+) );
+
+// Add support for custom background
+add_theme_support( 'custom-background' );
+
+// Add support for custom header
+add_theme_support( 'genesis-custom-header', array(
+	'width' => 1152,
+	'height' => 120
+) );
+
+// Add new image sizes 
+add_image_size( 'featured-img', 630, 320, TRUE );
+add_image_size( 'featured-page', 276, 140, TRUE );
+add_image_size( 'portfolio-thumbnail', 264, 200, TRUE );
+
+// Add support for structural wraps
+add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
+
+// Before Header Wrap
+add_action( 'genesis_before_header', 'before_header_wrap' );
+function before_header_wrap() {
+	echo '<div id="head-wrap">';
+}
+
+// After Header Wrap
+add_action( 'genesis_after_header', 'after_header_wrap' );
+function after_header_wrap() {
+	echo '</div>';
+}
+
+// Reposition the Secondary Navigation
+remove_action( 'genesis_after_header', 'genesis_do_subnav' ) ;
+add_action( 'genesis_before_header', 'genesis_do_subnav' );
+
+// Customize search form input box text
+add_filter( 'genesis_search_text', 'custom_search_text' );
+function custom_search_text($text) {
+    return esc_attr( 'Search...' );
+}
+
+add_action( 'admin_menu', 'epik_theme_settings_init', 15 ); 
+/** 
+ * This is a necessary go-between to get our scripts and boxes loaded 
+ * on the theme settings page only, and not the rest of the admin 
+ */ 
+function epik_theme_settings_init() { 
+    global $_genesis_admin_settings; 
+     
+    add_action( 'load-' . $_genesis_admin_settings->pagehook, 'epik_add_portfolio_settings_box', 20 ); 
+} 
+
+// Add Portfolio Settings box to Genesis Theme Settings 
+function epik_add_portfolio_settings_box() { 
+    global $_genesis_admin_settings; 
+     
+    add_meta_box( 'genesis-theme-settings-epik-portfolio', __( 'Portfolio Page Settings', 'epik' ), 'epik_theme_settings_portfolio',     $_genesis_admin_settings->pagehook, 'main' ); 
+}  
+	
+/** 
+ * Adds Portfolio Options to Genesis Theme Settings Page
+ */ 	
+function epik_theme_settings_portfolio() { ?>
+	
+	<p><?php _e("Exclude the following Category IDs:", 'genesis'); ?><br />
+	<input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_cat_exclude]" value="<?php echo esc_attr( genesis_get_option('epik_portfolio_cat_exclude') ); ?>" size="40" /><br />
+	<small><strong><?php _e("Comma separated - 1,2,3 for example", 'genesis'); ?></strong></small></p>
+	
+	<p><?php _e('Number of Posts to Show', 'genesis'); ?>:
+	<input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_cat_num]" value="<?php echo esc_attr( genesis_option('epik_portfolio_cat_num') ); ?>" size="2" /></p>
+	
+	<p><span class="description"><?php _e('<b>NOTE:</b> The Portfolio Page displays the "Portfolio Page" image size plus the excerpt or full content as selected below.', 'epik'); ?></span></p>
+	
+	<p><?php _e("Select one of the following:", 'genesis'); ?>
+	<select name="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_content]">
+		<option style="padding-right:10px;" value="full" <?php selected('full', genesis_get_option('epik_portfolio_content')); ?>><?php _e("Display post content", 'genesis'); ?></option>
+		<option style="padding-right:10px;" value="excerpts" <?php selected('excerpts', genesis_get_option('epik_portfolio_content')); ?>><?php _e("Display post excerpts", 'genesis'); ?></option>
+	</select></p>
+	
+	<p><label for="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_content_archive_limit]"><?php _e('Limit content to', 'genesis'); ?></label> <input type="text" name="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_content_archive_limit]" id="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_content_archive_limit]" value="<?php echo esc_attr( genesis_option('epik_portfolio_content_archive_limit') ); ?>" size="3" /> <label for="<?php echo GENESIS_SETTINGS_FIELD; ?>[epik_portfolio_content_archive_limit]"><?php _e('characters', 'genesis'); ?></label></p>
+	
+	<p><span class="description"><?php _e('<b>NOTE:</b> Using this option will limit the text and strip all formatting from the text displayed. To use this option, choose "Display post content" in the select box above.', 'genesis'); ?></span></p>
+<?php
+}	
+
+// Add support for 3-column footer widgets
+add_theme_support( 'genesis-footer-widgets', 3 );
+		
+// Register widget areas
+genesis_register_sidebar( array(
+	'id'			=> 'slider',
+	'name'			=> __( 'Slider', 'epik' ),
+	'description'	=> __( 'This is the slider section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'welcome-wide',
+	'name'			=> __( 'Welcome Wide', 'epik' ),
+	'description'	=> __( 'This is the Wide (full width) section of the Welcome area.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'welcome-feature-1',
+	'name'			=> __( 'Welcome Feature #1', 'epik' ),
+	'description'	=> __( 'This is the first column of the Welcome feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'welcome-feature-2',
+	'name'			=> __( 'Welcome Feature #2', 'epik' ),
+	'description'	=> __( 'This is the second column of the Welcome feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'welcome-feature-3',
+	'name'			=> __( 'Welcome Feature #3', 'epik' ),
+	'description'	=> __( 'This is the third column of the Welcome feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-1',
+	'name'			=> __( 'Home Feature #1 (Left)', 'epik' ),
+	'description'	=> __( 'This is the first column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-2',
+	'name'			=> __( 'Home Feature #2 (Right)', 'epik' ),
+	'description'	=> __( 'This is the second column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-3',
+	'name'			=> __( 'Home Feature #3 (Gray)', 'epik' ),
+	'description'	=> __( 'This is the 3rd column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-4',
+	'name'			=> __( 'Home Feature #4 (White)', 'epik' ),
+	'description'	=> __( 'This is the 4th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-5',
+	'name'			=> __( 'Home Feature #5 (Dark Gray)', 'epik' ),
+	'description'	=> __( 'This is the 5th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-6',
+	'name'			=> __( 'Home Feature #6 (White)', 'epik' ),
+	'description'	=> __( 'This is the 6th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-7',
+	'name'			=> __( 'Home Feature #7 (Gray)', 'epik' ),
+	'description'	=> __( 'This is the 7th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-8',
+	'name'			=> __( 'Home Feature #8 (White)', 'epik' ),
+	'description'	=> __( 'This is the 8th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-9',
+	'name'			=> __( 'Home Feature #9 (Gray)', 'epik' ),
+	'description'	=> __( 'This is the 9th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-10',
+	'name'			=> __( 'Home Feature #10', 'epik' ),
+	'description'	=> __( 'This is the 10th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-11',
+	'name'			=> __( 'Home Feature #11', 'epik' ),
+	'description'	=> __( 'This is the 11th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-12',
+	'name'			=> __( 'Home Feature #12', 'epik' ),
+	'description'	=> __( 'This is the 12th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-13',
+	'name'			=> __( 'Home Feature #13', 'epik' ),
+	'description'	=> __( 'This is the 13th column of the feature section of the homepage.', 'epik' ),
+) );
+genesis_register_sidebar( array(
+	'id'			=> 'home-feature-14',
+	'name'			=> __( 'Home Feature #14 (White)', 'epik' ),
+	'description'	=> __( 'This is the 14th column of the feature section of the homepage.', 'epik' ),
+) );
+
+// AGREGADOS GABI -------------------------------------------------------------------------------
+
+// Modificaciones al menú de Perfil		--comienzo
+
+function my_test_setup_nav() {
+	global $bp;
+   
+ // Change the order of menu items
+	//$bp->bp_nav['messages']['position'] = 100;
+
+	// Remove a menu item
+	$bp->bp_nav['blogs'] = false;
+	
+	// Change name of menu item
+	// $bp->bp_nav['groups']['name'] = ‘community’;
+	
+	
+		// Menú PUBLICACIONES 
+	 //name, slug, screen, position, default subnav
+		bp_core_new_nav_item( array( 
+		'name' => __( 'Publicaciones' ), 
+		'slug' => 'publicaciones',
+		'screen_function' => 'funcion_tab_publicaciones', 
+		'position' => 40,
+		'default_subnav_slug' => 'test_sub' 
+		) );
+	  
+	 /* Add the subnav items to the profile */
+	 // name, slug, parent_url, parent slug, screen function
+	 //por ahora desactivo la subnav=        bp_core_new_subnav_item( array( 'name' => __( 'Home' ), 'slug' => 'test_sub', 'parent_url' => $bp->loggedin_user->domain, 'parent_slug' => 'test', 'screen_function' => 'funcion_tab_publicaciones' ) ); 
+		function funcion_tab_publicaciones() {
+	  
+		//add title and content here - last is to call the members plugin.php template
+		//sin titulo	add_action( 'bp_template_title', 'funcion_tab_publicaciones_title' );
+		add_action( 'bp_template_content', 'funcion_tab_publicaciones_content' );
+		bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+		}
+		function funcion_tab_publicaciones_title() {echo 'something'; }
+		function funcion_tab_publicaciones_content() {
+		  
+		echo 'weee content';
+		echo do_shortcode( '[wpuf_form id="199"]' );
+		  
+		}
+}
+ add_action( 'bp_setup_nav', 'my_test_setup_nav' );
+
+// Modificaciones al menú de Perfil		--fin
+//
+//
+// Menú Principal completo			--comienzo
+
+add_action( 'genesis_header_right', 'menu_principal' );
+function menu_principal() {
+    require(CHILD_DIR.'/hook-header.php');
+}
+// Menú Principal completo			--fin
+//
+//
+// Sistema "Publicar" en blog				--comienzo
+
+/** Register widget areas */
+genesis_register_sidebar( array(
+    'id'            => 'publicar-tabs',
+    'name'          => __( 'Publicar tabs', 'themename' ),
+    'description'   => __( 'Donde poner las tabs con los forms para publicar', 'themename' ),
+) );
+
+/** agregar el widget debajo del menu!! (antes: genesis_before_loop ) **/
+add_action( 'genesis_after_header', 'accion_tabs_publicar' );
+function accion_tabs_publicar() {
+	if (is_page( 'editar-publicacion' ) ) { /* la pág. editar no debe tener los form. de crear posts */
+	}else{
+      genesis_widget_area( 'publicar-tabs', array(
+          'before' => '<div id="publicarform" class="after-post widget-area"> <div class="wrap">',
+          'after' => '</div> </div>'
+      )	);
+   }
+}  
+// Sistema "Publicar" en blog				--fin
+//
+//
+// Formato de posts 					--comienzo
+
+add_theme_support('post-formats', array( 'aside', 'gallery','link','video' ) );
+
+// Armado de posts con Custom Fields			--comienzo
+add_action( 'genesis_post_content', 'custom_field_in_content' );
+
+function ajj( $post_id ){
+	$uno = get_post_meta( $post_id, 'url_link', true );
+	$dos = get_post_meta( $post_id, 'txt_link', true );
+	return $uno . $dos;
+	}
+	
+function enlace($post_id){
+	$enlace_titulo = the_title('<h4>', '</h4>', false );
+	$enlace_link = get_post_meta( $post_id, 'url_link', true );
+	$enlace_imagen = 'http://s.wordpress.com/mshots/v1/'.$enlace_link.'?w=400';
+	$enlace_imagen_insertar =  '<img style="float:left;" width="400" height="400" src="'.$enlace_imagen.'" >';
+	$enlace_txt = '<p>'.get_post_meta( $post_id, 'txt_link', true ).'</p>';
+	return $enlace_imagen_insertar . $enlace_titulo . $enlace_txt ;
+	}
+function fotos($post_id){
+	$foto_galeria = 	do_shortcode('[gallery]');
+	$foto_txt = get_post_meta($post_id, 'txt_fotos', true);
+	return $foto_galeria . $foto_txt;
+	}
+function video($post_id){
+	$video_embed =	get_post_meta($post_id, 'url_video', true);
+	$video_insertar = wp_oembed_get( $video_embed	 ); // WP estandard
+	$video_insertar_responsive = do_shortcode('[fve]'.$video_embed.'[/fve]'); // Plugin para que sea responsive
+	$video_txt = get_post_meta($post_id, 'txt_video', true);
+	return $video_insertar . $video_txt;
+	}
+function documento($post_id){
+	$doc_archivo = get_post_meta($post_id, 'subir_documento',true);
+	$doc_link = wp_get_attachment_link( $doc_archivo);
+	$doc_boton = '<p>'.$doc_link. '</p>';
+	$doc_txt = get_post_meta($post_id, 'txt_documento',true);
+	return $doc_boton . $doc_txt;
+	}
+
+add_action( 'genesis_before_post', 'borrar_titulo' );
+function borrar_titulo(){
+	if ( in_category(array('enlace', 'documentos')) ) {
+			remove_action( 'genesis_post_title', 'genesis_do_post_title' );
+		}else{
+			//add_action( 'genesis_post_title', 'genesis_do_post_title' );	
+		} 			
+	}
+		
+function custom_field_in_content() {
+	global $post;
+	if ( in_category('enlace') ) {
+		echo enlace($post->ID);
+		//* Remove the entry title (requires HTML5 theme support)
+	}else	if ( in_category('fotos') ) {
+		echo fotos($post->ID);
+	}else	if ( in_category('videos') ) {
+		echo video($post->ID);
+	}else	if ( in_category('documentos') ) {
+		echo documento($post->ID);
+	}else {
+	}	
+}
+
+function wpufe_modify_bp_activity( $post_id ) {
+    global $wpdb, $user_ID;
+ 
+    //get the last inserted activity
+    $activity = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}bp_activity WHERE secondary_item_id = $post_id AND user_id = $user_ID");
+ 
+    // if activity found, update the activity with custom field
+    if ( $activity ) {
+		if ( in_category('enlace',$post_id ) ) {
+				$content = enlace($post_id);
+			}else	if ( in_category('fotos', $post_id) ) {
+				$content = fotos($post_id);
+			}else	if ( in_category('videos',$post_id) ) {
+				$content =  video($post_id);
+			}else	if ( in_category('documentos',$post_id) ) {
+				$content = documento($post_id);				
+			}else{
+	  		$content = $activity->content;
+  		}
+        $wpdb->update(
+            $wpdb->prefix . 'bp_activity',
+            array( 'content' => $content ),
+            array( 'id' => $activity->id )
+        );
+    }
+}
+ 
+add_action( 'wpuf_add_post_after_insert', 'wpufe_modify_bp_activity' );
+
+
+
+
+
+?>

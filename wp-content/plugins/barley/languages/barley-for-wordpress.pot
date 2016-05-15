@@ -1,0 +1,103 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Barley for WordPress 1.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/barley\n"
+"POT-Creation-Date: 2013-11-28 15:47:15+00:00\n"
+"POT-Revision-Date: Sun Oct 26 2014 00:07:23 GMT-0300 (ART)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../functions_barley_editor.php:194
+msgid "(no parent)"
+msgstr ""
+
+#: ../functions_admin_bar.php:23
+msgid "Turn Barley Editor On"
+msgstr ""
+
+#: ../functions_admin_bar.php:34
+msgid "+ New"
+msgstr ""
+
+#: ../functions_admin_bar.php:63
+msgid "Blog Post"
+msgstr ""
+
+#: ../functions_admin_bar.php:111
+msgid "Page"
+msgstr ""
+
+#: ../functions_admin_bar.php:122
+msgid "Visit Barley Help Center"
+msgstr ""
+
+#: ../functions_admin_bar.php:132 ../functions_admin_bar.php:144
+msgid "Publish"
+msgstr ""
+
+#: ../functions_admin_bar.php:155 ../functions_admin_bar.php:165
+msgid "Delete"
+msgstr ""
+
+#: ../functions_admin_bar.php:175
+msgid "Turn Barley Editor Off"
+msgstr ""
+
+#: ../functions_updates.php:115
+msgid "Barley Update Error:"
+msgstr ""
+
+#: ../functions_updates.php:115
+#, php-format
+msgid ""
+"There may be an update available. However, %1$s <a href=\"http://support."
+"getbarley.com\">Visit the Barley Help Center</a> to report or correct the "
+"issue."
+msgstr ""
+
+#: ../functions_updates.php:127
+msgid "Notice:"
+msgstr ""
+
+#: ../functions_updates.php:127
+msgid "There is an update available for Barley for WordPress."
+msgstr ""
+
+#: ../functions_widget.php:14
+msgid "Promote Barley for WordPress"
+msgstr ""
+
+#: ../functions_widget.php:15
+msgid "A simple text widget to help promote Barley for WordPress"
+msgstr ""
+
+#: ../functions_widget.php:33
+msgid ""
+"Written using <a href=\"http://getbarley.com/\" target=\"_blank\" title=\"Barley, "
+"the inline editor for WordPress\">Barley, the inline editor for WordPress</a>."
+msgstr ""
+
+#: ../functions_widget.php:49
+msgid "Written with Barley"
+msgstr ""
+
+#: ../functions_widget.php:55
+msgid "Title:"
+msgstr ""

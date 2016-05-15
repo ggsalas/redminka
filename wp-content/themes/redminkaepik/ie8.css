@@ -1,0 +1,14 @@
+#slider{
+    background-image: url("img/redminka-inicio-ie8.jpg");
+    background-color: red !important;
+    position: relative;
+    z-index: 1;
+    height:450px;
+    width: 100%;
+    background-repeat: no-repeat;
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://redminka.com/wp-content/themes/redminkaepik/img/redminka-inicio-ie8.jpg', sizingMethod='scale')";
+/*
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='http://redminka.com/wp-content/themes/redminkaepik/img/redminka-inicio.jpg', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='http://redminka.com/wp-content/themes/redminkaepik/img/redminka-inicio.jpg', sizingMethod='scale')";
+*/
+	}
